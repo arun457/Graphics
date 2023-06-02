@@ -9,6 +9,22 @@
 int killed[enemy_count + 1];
 int nextkill = 0;
 
+void explosion(int x, int y)
+{
+	circle(x, y, 5);
+	delay(50);
+	cleardevice();
+	circle(x, y, 10);
+	delay(50);
+	cleardevice();
+	circle(x, y, 15);
+	delay(50);
+	cleardevice();
+	circle(x, y, 20);
+	delay(50);
+	cleardevice();
+}
+
 void GameOver()
 {
 	cleardevice();
@@ -73,6 +89,7 @@ void shoot(int x, int y)
 	int killedindex = (x + 1) / 30;
 	if (!iskilled(killedindex))
 	{
+		explosion(x, 12);
 		killed[nextkill] = killedindex;
 		nextkill = nextkill + 1;
 	}
