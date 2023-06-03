@@ -31,7 +31,7 @@ void main()
 
 	while (x <= x2)
 	{
-		putpixel(x, y, WHITE);
+		putpixel(int(x + 0.5), int(y + 0.5), WHITE);
 		x = nextX(x, m);
 		y = nextY(y, m);
 	}
