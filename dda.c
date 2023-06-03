@@ -1,23 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-#include <stdlib.h>
 #include <graphics.h>
-
-float nextX(float x, float m)
-{
-	if (m <= 1)
-		return x + 1;
-	else
-		return x + 1 / m;
-}
-
-float nextY(float y, float m)
-{
-	if (m <= 1)
-		return y + m;
-	else
-		return y + 1;
-}
 
 void main()
 {
@@ -31,9 +14,17 @@ void main()
 
 	while (x <= x2)
 	{
+		if (m <= 1)
+		{
+			x = x + 1;
+			y = y + m;
+		}
+		else
+		{
+			y = y + 1;
+			x = x + 1 / m;
+		}
 		putpixel(int(x + 0.5), int(y + 0.5), WHITE);
-		x = nextX(x, m);
-		y = nextY(y, m);
 	}
 
 	getch();
